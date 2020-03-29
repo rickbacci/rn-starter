@@ -1,5 +1,15 @@
 import React from 'react';
-import { View, Text, StyleSheet, FlatList } from 'react-native';
+import {
+  Text,
+  StyleSheet,
+  FlatList,
+} from 'react-native';
+
+const styles = StyleSheet.create({
+  textStyle: {
+    marginVertical: 50,
+  },
+});
 
 const ListScreen = () => {
   const friends = [
@@ -9,28 +19,24 @@ const ListScreen = () => {
     { name: 'friend#4', age: 23 },
     { name: 'friend#5', age: 24 },
     { name: 'friend#6', age: 25 },
-    { name: 'friend#7', age: 26 }
+    { name: 'friend#7', age: 26 },
   ];
 
   return (
     <FlatList
-      keyExtractor={friend => friend.name}
+      keyExtractor={(friend) => friend.name}
       data={friends}
       renderItem={({ item }) => {
         return (
           <Text style={styles.textStyle}>
-            {item.name} - Age: {item.age}
+            {item.name}
+            - Age:
+            {item.age}
           </Text>
         );
       }}
     />
   );
 };
-
-const styles = StyleSheet.create({
-  textStyle: {
-    marginVertical: 50
-  }
-});
 
 export default ListScreen;
