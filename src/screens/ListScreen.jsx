@@ -7,7 +7,13 @@ import {
 
 const styles = StyleSheet.create({
   textStyle: {
-    marginVertical: 50,
+    marginVertical: 30,
+    fontSize: 25,
+    alignSelf: 'center',
+    borderColor: 'black',
+    borderWidth: 5,
+    padding: 15,
+
   },
 });
 
@@ -26,15 +32,13 @@ const ListScreen = () => {
     <FlatList
       keyExtractor={(friend) => friend.name}
       data={friends}
-      renderItem={({ item }) => {
-        return (
-          <Text style={styles.textStyle}>
-            {item.name}
-            - Age:
-            {item.age}
-          </Text>
-        );
-      }}
+      renderItem={({ item }) => (
+        <Text style={styles.textStyle}>
+          {item.name}
+          - Age:
+          {item.age}
+        </Text>
+      )}
     />
   );
 };
