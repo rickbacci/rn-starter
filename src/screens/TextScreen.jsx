@@ -57,6 +57,7 @@ const TextScreen = () => {
         autoCorrect={false}
         value={password}
         onChangeText={(newValue) => setPassword(newValue)}
+        secureTextEntry
       />
       {invalidPassword() ? showWarning() : null}
     </View>
