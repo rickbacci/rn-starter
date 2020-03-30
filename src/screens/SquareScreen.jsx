@@ -26,12 +26,18 @@ const reducer = (state, action) => {
   }
 };
 
+const styles = StyleSheet.create({
+  viewStyle: {
+    margin: 20,
+  },
+});
+
 const SquareScreen = () => {
   const [state, dispatch] = useReducer(reducer, { red: 0, green: 0, blue: 0 });
   const { red, green, blue } = state;
 
   return (
-    <View>
+    <View style={styles.viewStyle}>
       <ColorCounter
         color="Red"
         onIncrease={() => dispatch({ type: 'change_red', payload: COLOR_INCREMENT })}
@@ -47,11 +53,16 @@ const SquareScreen = () => {
         onIncrease={() => dispatch({ type: 'change_green', payload: COLOR_INCREMENT })}
         onDecrease={() => dispatch({ type: 'change_green', payload: -1 * COLOR_INCREMENT })}
       />
-      <View style={{ height: 175, width: 175, backgroundColor: `rgb(${red}, ${green}, ${blue})` }} />
+      <View style={{
+        margin: 5,
+        height: 275,
+        width: 350,
+        backgroundColor: `rgb(${red}, ${green}, ${blue})`,
+        alignSelf: 'center',
+      }}
+      />
     </View>
   );
 };
-
-const styles = StyleSheet.create({});
 
 export default SquareScreen;
