@@ -6,8 +6,16 @@ import {
   Button,
 } from 'react-native';
 
+const styles = StyleSheet.create({
+  textStyle: {
+    margin: 10,
+    alignSelf: 'center',
+  },
+});
+
 const CounterScreen = () => {
   const [counter, setCounter] = useState(0);
+
   return (
     <View>
       <Button
@@ -22,14 +30,12 @@ const CounterScreen = () => {
           setCounter(counter - 1);
         }}
       />
-      <Text>
+      <Text style={styles.textStyle}>
         Current Count:
         {counter}
       </Text>
     </View>
   );
 };
-
-const styles = StyleSheet.create({});
 
 export default CounterScreen;
