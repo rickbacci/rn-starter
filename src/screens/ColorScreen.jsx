@@ -14,11 +14,22 @@ const randomRGB = () => {
   return `rgb(${red}, ${green}, ${blue})`;
 };
 
+const styles = StyleSheet.create({
+  flatListStyle: {
+    margin: 15,
+  },
+  viewStyle: {
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginTop: 15,
+  },
+});
+
 const ColorScreen = () => {
   const [colors, setColors] = useState([]);
 
   return (
-    <View>
+    <View style={styles.viewStyle}>
       <Button
         title="Add Color"
         onPress={() => {
@@ -26,19 +37,25 @@ const ColorScreen = () => {
         }}
       />
       <FlatList
+        style={styles.flatListStyle}
         keyExtractor={(item) => item}
         data={colors}
-        renderItem={({ item }) => {
-          return (
-            <View style={{ height: 100, width: 100, backgroundColor: item }} />
-          );
-        }}
+        showsVerticalScrollIndicator={false}
+        renderItem={({ item }) => (
+          <View style={{
+            margin: 5,
+            borderColor: 'black',
+            borderWidth: 1,
+            borderRadius: 15,
+            height: 200,
+            width: 200,
+            backgroundColor: item,
+          }}
+          />
+        )}
       />
     </View>
   );
 };
-
-
-const styles = StyleSheet.create({});
 
 export default ColorScreen;
